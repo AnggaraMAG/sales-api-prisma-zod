@@ -1,4 +1,5 @@
 const swaggerJsdoc = require('swagger-jsdoc');
+require('dotenv').config();
 
 const options = {
   definition: {
@@ -10,9 +11,13 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Development server',
+        url: process.env.API_URL || 'http://localhost:3000',
+        description: 'API Server',
       },
+      {
+        url: process.env.PROD_URL,
+        description: 'Production Server',
+      }
     ],
   },
   apis: [
