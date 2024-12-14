@@ -10,7 +10,7 @@ const swaggerUi = require('swagger-ui-express');
 const specs = require('./swagger/config');
 
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 app.use(express.json());
 app.use(cors());
 
@@ -18,8 +18,12 @@ app.use(cors());
 
 
 
-// Get all sales
 
+// doc swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+
+// Get all sales
 app.get('/sales', async (req, res) => {
     try {
       const sales = await prisma.sale.findMany();
