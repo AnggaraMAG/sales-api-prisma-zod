@@ -23,6 +23,7 @@ app.use(cors());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
+
 // Get all sales
 app.get('/sales', async (req, res) => {
     try {
