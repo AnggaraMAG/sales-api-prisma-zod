@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: process.env.API_URL,
+        url: 'https://sales-api-prisma-zod.vercel.app/api-docs',
         description: 'API Server',
       }
     ],
