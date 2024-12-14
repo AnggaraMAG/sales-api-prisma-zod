@@ -1,7 +1,7 @@
 {
   "name": "simple-crud-nodejs",
   "version": "1.0.0",
-   "main": "src/index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
@@ -17,6 +17,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "prisma": "^6.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^3.24.1"
   }
 }

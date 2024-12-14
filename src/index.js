@@ -3,14 +3,23 @@ const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
 const validateSale = require('../middleware/validateSale.js');
 
+
 const prisma = new PrismaClient();
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./swagger/config');
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use(express.json());
 app.use(cors());
 
 
+
+
+
 // Get all sales
+
 app.get('/sales', async (req, res) => {
     try {
       const sales = await prisma.sale.findMany();
