@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
-const validateSale = require('./middleware/validateSale.js');
+const validateSale = require('../middleware/validateSale.js');
 
 const prisma = new PrismaClient();
 const app = express();
