@@ -19,22 +19,9 @@ app.use(cors());
 
 
 
-// Set correct MIME types
-app.use(express.static('public', {
-  setHeaders: (res, path) => {
-    if (path.endsWith('.css')) {
-      res.setHeader('Content-Type', 'text/css');
-    }
-  }
-}));
+// doc swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
-// Configure Swagger UI with CDN CSS
-app.use('/api-docs', swaggerUi.serve);
-app.get('/api-docs', swaggerUi.setup(specs, {
-  customCss: '.swagger-ui .topbar { display: none }',
-  customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
-  customJs: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.js'
-}));
 
 // Get all sales
 app.get('/sales', async (req, res) => {
